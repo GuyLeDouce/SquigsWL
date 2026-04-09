@@ -5,6 +5,7 @@ const panelForm = document.getElementById("panelForm");
 const statusMessage = document.getElementById("statusMessage");
 const backButton = document.getElementById("backButton");
 const continueButton = document.getElementById("continueButton");
+const adminHotspot = document.getElementById("adminHotspot");
 
 const formState = {
   ready: "",
@@ -291,6 +292,10 @@ continueButton.addEventListener("click", async () => {
 
   currentPanel += 1;
   renderPanel();
+});
+
+adminHotspot.addEventListener("click", () => {
+  window.location.href = "/admin.html";
 });
 
 renderPanel();

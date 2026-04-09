@@ -45,13 +45,43 @@
               </div>
             </div>
             <div class="admin-card compact">
-              <h2>Review Notes</h2>
-              <p>Statuses update the live CSV and approved wallet export immediately. Keep Railway storage mounted to retain data across deploys.</p>
+              <h2>Submission Store</h2>
+              <p id="storageSummary">Statuses update the live CSV and approved wallet export immediately.</p>
               <button id="refreshButton" class="action-button primary" type="button">Refresh</button>
               <div id="adminMessage" class="status-message"></div>
             </div>
           </div>
-          <div id="submissionList" class="submission-list"></div>
+          <section class="admin-card compact table-card">
+            <div class="table-header">
+              <h2>Submission Review</h2>
+              <p>Scrollable table for all submissions. Download the CSV any time, or update status and notes inline.</p>
+            </div>
+            <div class="table-wrap">
+              <table class="submission-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Submitted</th>
+                    <th>Wallet</th>
+                    <th>Discord</th>
+                    <th>X</th>
+                    <th>Fav Collection</th>
+                    <th>Why</th>
+                    <th>Joined Discord</th>
+                    <th>Biggest Hold</th>
+                    <th>NFT Interest</th>
+                    <th>Contribution</th>
+                    <th>Ugly Behavior</th>
+                    <th>Stay Without WL</th>
+                    <th>Status</th>
+                    <th>Admin Notes</th>
+                    <th>Save</th>
+                  </tr>
+                </thead>
+                <tbody id="submissionTableBody"></tbody>
+              </table>
+            </div>
+          </section>
         </section>
       </main>
 

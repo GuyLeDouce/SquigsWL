@@ -44,6 +44,19 @@ select {
   flex-direction: column;
 }
 
+.admin-hotspot {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  background: transparent;
+  border: 0;
+  z-index: 20;
+  cursor: default;
+}
+
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -324,6 +337,80 @@ select {
 .submission-list {
   display: grid;
   gap: 16px;
+}
+
+.table-card {
+  display: grid;
+  gap: 12px;
+}
+
+.table-header h2 {
+  margin: 0 0 6px;
+}
+
+.table-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(2, 8, 14, 0.5);
+  max-height: 70vh;
+}
+
+.submission-table {
+  width: 100%;
+  min-width: 1800px;
+  border-collapse: collapse;
+}
+
+.submission-table th,
+.submission-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+  text-align: left;
+}
+
+.submission-table th {
+  position: sticky;
+  top: 0;
+  background: rgba(5, 14, 22, 0.96);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  z-index: 1;
+}
+
+.submission-table td {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.cell-text {
+  min-width: 180px;
+  max-width: 320px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--muted);
+}
+
+.cell-id,
+.cell-short {
+  white-space: nowrap;
+}
+
+.table-select,
+.table-input {
+  min-width: 150px;
+}
+
+.table-save {
+  min-width: 120px;
 }
 
 .submission-card {

@@ -4,11 +4,12 @@ const loginForm = document.getElementById("loginForm");
 const passwordInput = document.getElementById("passwordInput");
 const loginMessage = document.getElementById("loginMessage");
 const adminMessage = document.getElementById("adminMessage");
-const submissionList = document.getElementById("submissionList");
+const submissionTableBody = document.getElementById("submissionTableBody");
 const approvedWallets = document.getElementById("approvedWallets");
 const refreshButton = document.getElementById("refreshButton");
 const copyWalletsButton = document.getElementById("copyWalletsButton");
 const exportLinks = Array.from(document.querySelectorAll(".link-button"));
+const storageSummary = document.getElementById("storageSummary");
 
 let adminPassword = window.localStorage.getItem("squigs_admin_password") || "";
 
@@ -69,66 +70,56 @@ function updateExportLinks() {
 }
 
 function field(label, value) {
-  return `
-    <div class="submission-field">
-      <strong>${escapeHtml(label)}</strong>
-      <div>${escapeHtml(value || "")}</div>
-    </div>
-  `;
+  return `<div class="cell-text" title="${escapeHtml(value || "")}">${escapeHtml(value || "")}</div>`;
 }
 
 function renderSubmissions(submissions) {
   if (submissions.length === 0) {
-    submissionList.innerHTML = `<div class="admin-card compact">No submissions yet.</div>`;
+    submissionTableBody.innerHTML = `<tr><td colspan="16">No submissions yet.</td></tr>`;
     return;
   }
 
-  submissionList.innerHTML = submissions
+  submissionTableBody.innerHTML = submissions
     .map(
       (submission) => `
-        <article class="submission-card" data-id="${submission.id}">
-          <div class="submission-header">
-            <div>
-              <h3 class="submission-title">${escapeHtml(submission.wallet_address)}</h3>
-              <p class="submission-meta">Submitted ${escapeHtml(formatDate(submission.created_at))} | Updated ${escapeHtml(formatDate(submission.updated_at))}</p>
-            </div>
-            <span class="submission-meta">Status: ${escapeHtml(submission.status)}</span>
-          </div>
-          <div class="submission-grid">
-            ${field("Favorite Collection", submission.favorite_collection)}
-            ${field("Why It Stands Out", submission.favorite_collection_reason)}
-            ${field("Discord Handle", submission.discord_handle)}
-            ${field("Discord Duration", submission.discord_duration)}
-            ${field("Joined Discord", submission.joined_discord)}
-            ${field("Biggest NFT Count", submission.biggest_collection_count)}
-            ${field("Biggest NFT Collection", submission.biggest_collection_name)}
-            ${field("NFT Uniqueness", submission.nft_uniqueness)}
-            ${field("Contribution", submission.squigs_contribution)}
-            ${field("Ugly Behavior", submission.ugly_behavior)}
-            ${field("Stay Without WL", submission.participate_without_wl)}
-            ${field("Following on X", submission.follows_x)}
-            ${field("X Handle", submission.x_handle)}
-          </div>
-          <div class="submission-admin">
-            <select class="select-input status-select">
+        <tr data-id="${submission.id}">
+          <td class="cell-id">${submission.id}</td>
+          <td class="cell-short">${escapeHtml(formatDate(submission.created_at))}</td>
+          <td class="cell-text">${escapeHtml(submission.wallet_address)}</td>
+          <td class="cell-text">${escapeHtml(submission.discord_handle)}<br>${escapeHtml(submission.discord_duration)}</td>
+          <td class="cell-text">${escapeHtml(submission.follows_x)}${submission.x_handle ? `<br>${escapeHtml(submission.x_handle)}` : ""}</td>
+          <td>${field("Favorite Collection", submission.favorite_collection)}</td>
+          <td>${field("Why It Stands Out", submission.favorite_collection_reason)}</td>
+          <td class="cell-short">${escapeHtml(submission.joined_discord)}</td>
+          <td class="cell-text">${escapeHtml(submission.biggest_collection_count)}<br>${escapeHtml(submission.biggest_collection_name)}</td>
+          <td>${field("NFT Uniqueness", submission.nft_uniqueness)}</td>
+          <td>${field("Contribution", submission.squigs_contribution)}</td>
+          <td>${field("Ugly Behavior", submission.ugly_behavior)}</td>
+          <td class="cell-short">${escapeHtml(submission.participate_without_wl)}</td>
+          <td>
+            <select class="select-input table-select status-select">
               <option value="pending" ${submission.status === "pending" ? "selected" : ""}>Pending</option>
               <option value="approved" ${submission.status === "approved" ? "selected" : ""}>Approved</option>
               <option value="rejected" ${submission.status === "rejected" ? "selected" : ""}>Rejected</option>
             </select>
-            <input class="text-input admin-notes" type="text" value="${escapeHtml(submission.admin_notes || "")}" placeholder="Admin notes" />
-            <button class="action-button primary save-button" type="button">Save Review</button>
-          </div>
-        </article>
+          </td>
+          <td>
+            <input class="text-input table-input admin-notes" type="text" value="${escapeHtml(submission.admin_notes || "")}" placeholder="Admin notes" />
+          </td>
+          <td>
+            <button class="action-button primary table-save save-button" type="button">Save</button>
+          </td>
+        </tr>
       `
     )
     .join("");
 
   Array.from(document.querySelectorAll(".save-button")).forEach((button) => {
     button.addEventListener("click", async (event) => {
-      const card = event.target.closest(".submission-card");
-      const id = card.dataset.id;
-      const status = card.querySelector(".status-select").value;
-      const adminNotes = card.querySelector(".admin-notes").value;
+      const row = event.target.closest("tr");
+      const id = row.dataset.id;
+      const status = row.querySelector(".status-select").value;
+      const adminNotes = row.querySelector(".admin-notes").value;
       setAdminMessage("Saving review...");
 
       try {
@@ -167,6 +158,7 @@ async function loadDashboard() {
   }
 
   approvedWallets.value = result.approvedWallets.join("\n");
+  storageSummary.textContent = `Submissions currently load from the server data store. CSV and approved wallet exports update immediately. Total submissions: ${result.submissions.length}.`;
   renderSubmissions(result.submissions);
 }
 
