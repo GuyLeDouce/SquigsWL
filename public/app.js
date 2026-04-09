@@ -28,7 +28,7 @@ const formState = {
 const panels = [
   {
     title: "Are you ready to embrace the Ugly?",
-    prompt: "",
+    prompt: "A few quick questions will help the Squigs team get a real feel for who you are, what you collect, and how you show up in the space.",
     progress: "Entry Gate",
     fields: [
       {
@@ -42,34 +42,34 @@ const panels = [
     title: "",
     progress: "Question 1 of 10",
     prompt:
-      "At Ugly Labs, we are all about community, collecting, and having fun. We like to learn more about our community and welcome like minded people that are passionate about the space in all walks, not just our own little world. That said, what is your favorite NFT Collection that you currently hold and why does it stand out to you?",
+      "Let’s start with your taste as a collector. What is your favorite NFT collection that you currently hold, and what makes it stand out to you?",
     fields: [
       { type: "textarea", key: "favoriteCollection", placeholder: "Favorite NFT collection" },
-      { type: "textarea", key: "favoriteCollectionReason", placeholder: "Why it stands out to you" }
+      { type: "textarea", key: "favoriteCollectionReason", placeholder: "Why it stands out" }
     ]
   },
   {
     title: "",
     progress: "Question 2 of 10",
     prompt:
-      "Squigs love games, building bots, and having fun in discord. What is your Discord handle, and how long have you been using Discord?",
+      "Community matters here. What is your Discord handle, and how long have you been active on Discord?",
     fields: [
       { type: "text", key: "discordHandle", placeholder: "Discord Handle" },
-      { type: "text", key: "discordDuration", placeholder: "How Long?" }
+      { type: "text", key: "discordDuration", placeholder: "How long have you used Discord?" }
     ]
   },
   {
     title: "",
     progress: "Question 3 of 10",
     prompt:
-      "We would love to invite you to join us in discord, meet the great people of Ugly Labs, and be part of the amazing community. Have you joined our discord and introduced yourself to the community? Hit the discord icon in the top corner of this page to join.",
+      "We want people who actually want to be part of the community. Have you joined the Squigs Discord and introduced yourself? If not, you can use the Discord icon at the top of the page.",
     fields: [{ type: "binary", key: "joinedDiscord", options: ["Yes", "No"] }]
   },
   {
     title: "",
     progress: "Question 4 of 10",
     prompt:
-      "Squigs are digital collectibles, more commonly known as NFTs. In your collection of NFTs, what project do you hold the most of, and how many do you hold?",
+      "Looking at your wallet as a whole, which NFT project do you hold the most of, and how many do you currently hold?",
     fields: [
       { type: "text", key: "biggestCollectionCount", placeholder: "How many?" },
       { type: "text", key: "biggestCollectionName", placeholder: "Which collection?" }
@@ -79,33 +79,33 @@ const panels = [
     title: "",
     progress: "Question 5 of 10",
     prompt:
-      "Crypto trading and NFTs have long been spoken of as one in the same, but they are very different in many ways. What is something unique about NFTs that keep you interested and intrigued?",
+      "A lot of people lump NFTs and crypto trading together, but they are not the same. What is something specific about NFTs that still keeps you interested?",
     fields: [{ type: "textarea", key: "nftUniqueness", placeholder: "Your answer" }]
   },
   {
     title: "",
     progress: "Question 6 of 10",
     prompt:
-      "Being part of an NFT project often means more than just simply holding to some people. If you were part of Squigs, how would you contribute to the community and or project?",
+      "Being part of a project should mean more than just holding. If you joined Squigs, how would you contribute to the community or the project itself?",
     fields: [{ type: "textarea", key: "squigsContribution", placeholder: "How would you contribute?" }]
   },
   {
     title: "",
     progress: "Question 7 of 10",
     prompt:
-      "Squigs are observers, watching Ugly behaviour. Not looks, but how people act and carry themselves. What is one ugly behavior that you have noticed in NFTs or online communities?",
+      "Squigs watch behavior, not appearances. What is one ugly behavior you have noticed in NFTs or online communities that turns you off?",
     fields: [{ type: "textarea", key: "uglyBehavior", placeholder: "Observed behavior" }]
   },
   {
     title: "",
     progress: "Question 8 of 10",
-    prompt: "If you do not get WL for some reason, will you still join and participate in the community?",
+    prompt: "If you do not get WL, would you still join and participate in the Squigs community?",
     fields: [{ type: "binary", key: "participateWithoutWl", options: ["Yes", "No"] }]
   },
   {
     title: "",
     progress: "Question 9 of 10",
-    prompt: "Are you following @SquigsNFT on X? If so, drop your X handle below.",
+    prompt: "Are you already following @SquigsNFT on X? If yes, drop your handle below.",
     fields: [
       { type: "binary", key: "followsX", options: ["Yes", "No"] },
       { type: "text", key: "xHandle", placeholder: "X Handle" }
@@ -115,7 +115,7 @@ const panels = [
     title: "",
     progress: "Question 10 of 10",
     prompt:
-      "The team will review your answers to all of the previous questions, check activity on X and Discord, and decide whether you are a good fit for WL. Drop your Ethereum wallet below to be eligible.",
+      "Last step. The team will review your answers along with your Discord and X presence to decide whether you are a strong fit for WL. Drop your Ethereum wallet below to submit.",
     fields: [{ type: "text", key: "walletAddress", placeholder: "Wallet Address" }]
   }
 ];
