@@ -208,6 +208,8 @@ function renderPanel() {
 
   backButton.disabled = currentPanel === 0 || isSubmitting;
   backButton.style.visibility = currentPanel === 0 ? "hidden" : "visible";
+  document.querySelector(".panel-actions").style.justifyContent =
+    currentPanel === 0 ? "center" : "space-between";
   continueButton.disabled = isSubmitting;
   continueButton.textContent = currentPanel === panels.length - 1 ? "Submit for WL" : "Continue";
 }
