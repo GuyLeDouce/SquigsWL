@@ -207,6 +207,7 @@ function renderPanel() {
   });
 
   backButton.disabled = currentPanel === 0 || isSubmitting;
+  backButton.style.visibility = currentPanel === 0 ? "hidden" : "visible";
   continueButton.disabled = isSubmitting;
   continueButton.textContent = currentPanel === panels.length - 1 ? "Submit for WL" : "Continue";
 }
