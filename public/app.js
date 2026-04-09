@@ -206,10 +206,10 @@ function renderPanel() {
     panelForm.appendChild(element);
   });
 
-  backButton.disabled = currentPanel === 0 || isSubmitting;
-  backButton.style.visibility = currentPanel === 0 ? "hidden" : "visible";
-  document.querySelector(".panel-actions").style.justifyContent =
-    currentPanel === 0 ? "center" : "space-between";
+  backButton.disabled = isSubmitting;
+  backButton.style.visibility = "visible";
+  backButton.textContent = currentPanel === 0 ? "Follow Squigs" : "Back";
+  document.querySelector(".panel-actions").style.justifyContent = "center";
   continueButton.disabled = isSubmitting;
   continueButton.textContent = currentPanel === panels.length - 1 ? "Submit for WL" : "Continue";
 }
@@ -281,7 +281,16 @@ async function submitForm() {
 }
 
 backButton.addEventListener("click", () => {
-  if (currentPanel > 0 && !isSubmitting) {
+  if (isSubmitting) {
+    return;
+  }
+
+  if (currentPanel === 0) {
+    window.open("https://x.com/SquigsNFT", "_blank", "noopener,noreferrer");
+    return;
+  }
+
+  if (currentPanel > 0) {
     currentPanel -= 1;
     renderPanel();
   }
