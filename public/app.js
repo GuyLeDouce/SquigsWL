@@ -27,6 +27,13 @@ const formState = {
 
 const panels = [
   {
+    title: "Welcome to Squigs",
+    prompt:
+      "This short application is meant to give the team a feel for who you are, how you think, and how you show up in NFT communities. Take your time, answer honestly, and let your personality come through.",
+    progress: "Welcome",
+    fields: []
+  },
+  {
     title: "Are you ready to embrace the Ugly?",
     prompt: "A few quick questions will help the Squigs team get a real feel for who you are, what you collect, and how you show up in the space.",
     progress: "Entry Gate",
@@ -208,6 +215,10 @@ function validateCurrentPanel() {
   const panel = panels[currentPanel];
 
   if (currentPanel === 0) {
+    return "";
+  }
+
+  if (currentPanel === 1) {
     if (!formState.ready) {
       return "Please choose Yes or No to continue.";
     }
