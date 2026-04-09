@@ -39,7 +39,7 @@ const panels = [
     ]
   },
   {
-    title: "Panel 1",
+    title: "",
     progress: "Question 1 of 10",
     prompt:
       "At Ugly Labs, we are all about community, collecting, and having fun. We like to learn more about our community and welcome like minded people that are passionate about the space in all walks, not just our own little world. That said, what is your favorite NFT Collection that you currently hold and why does it stand out to you?",
@@ -49,7 +49,7 @@ const panels = [
     ]
   },
   {
-    title: "Panel 2",
+    title: "",
     progress: "Question 2 of 10",
     prompt:
       "Squigs love games, building bots, and having fun in discord. What is your Discord handle, and how long have you been using Discord?",
@@ -59,14 +59,14 @@ const panels = [
     ]
   },
   {
-    title: "Panel 3",
+    title: "",
     progress: "Question 3 of 10",
     prompt:
       "We would love to invite you to join us in discord, meet the great people of Ugly Labs, and be part of the amazing community. Have you joined our discord and introduced yourself to the community? Hit the discord icon in the top corner of this page to join.",
     fields: [{ type: "binary", key: "joinedDiscord", options: ["Yes", "No"] }]
   },
   {
-    title: "Panel 4",
+    title: "",
     progress: "Question 4 of 10",
     prompt:
       "Squigs are digital collectibles, more commonly known as NFTs. In your collection of NFTs, what project do you hold the most of, and how many do you hold?",
@@ -76,34 +76,34 @@ const panels = [
     ]
   },
   {
-    title: "Panel 5",
+    title: "",
     progress: "Question 5 of 10",
     prompt:
       "Crypto trading and NFTs have long been spoken of as one in the same, but they are very different in many ways. What is something unique about NFTs that keep you interested and intrigued?",
     fields: [{ type: "textarea", key: "nftUniqueness", placeholder: "Your answer" }]
   },
   {
-    title: "Panel 6",
+    title: "",
     progress: "Question 6 of 10",
     prompt:
       "Being part of an NFT project often means more than just simply holding to some people. If you were part of Squigs, how would you contribute to the community and or project?",
     fields: [{ type: "textarea", key: "squigsContribution", placeholder: "How would you contribute?" }]
   },
   {
-    title: "Panel 7",
+    title: "",
     progress: "Question 7 of 10",
     prompt:
       "Squigs are observers, watching Ugly behaviour. Not looks, but how people act and carry themselves. What is one ugly behavior that you have noticed in NFTs or online communities?",
     fields: [{ type: "textarea", key: "uglyBehavior", placeholder: "Observed behavior" }]
   },
   {
-    title: "Panel 8",
+    title: "",
     progress: "Question 8 of 10",
     prompt: "If you do not get WL for some reason, will you still join and participate in the community?",
     fields: [{ type: "binary", key: "participateWithoutWl", options: ["Yes", "No"] }]
   },
   {
-    title: "Panel 9",
+    title: "",
     progress: "Question 9 of 10",
     prompt: "Are you following @SquigsNFT on X? If so, drop your X handle below.",
     fields: [
@@ -112,7 +112,7 @@ const panels = [
     ]
   },
   {
-    title: "Panel 10",
+    title: "",
     progress: "Question 10 of 10",
     prompt:
       "The team will review your answers to all of the previous questions, check activity on X and Discord, and decide whether you are a good fit for WL. Drop your Ethereum wallet below to be eligible.",
