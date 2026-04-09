@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squigs WL Form</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="top-bar">
+        <a class="brand-link" href="/" aria-label="Squigs home">
+          <img class="brand-logo" src="https://i.imgur.com/7BhOkhC.png" alt="Squigs logo" />
+        </a>
+        <div class="social-links">
+          <a class="social-link" href="https://x.com/SquigsNFT" target="_blank" rel="noreferrer" aria-label="Squigs on X">
+            <img src="https://i.imgur.com/miO8HjA.png" alt="X logo" />
+          </a>
+          <a class="social-link" href="https://squigs.io/discord" target="_blank" rel="noreferrer" aria-label="Squigs Discord">
+            <img src="https://i.imgur.com/1gXY4wm.png" alt="Discord logo" />
+          </a>
+        </div>
+      </header>
+
+      <main class="panel-wrap">
+        <section class="panel">
+          <div id="progressLabel" class="progress-label"></div>
+          <h1 id="panelTitle" class="panel-title"></h1>
+          <p id="panelPrompt" class="panel-prompt" aria-live="polite"></p>
+          <form id="panelForm" class="panel-form"></form>
+          <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+          <div class="panel-actions">
+            <button id="backButton" class="action-button secondary" type="button">Back</button>
+            <button id="continueButton" class="action-button primary" type="button">Continue</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">SQUIGS ARE WATCHING</footer>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+  </html>

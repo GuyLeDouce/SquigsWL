@@ -1,0 +1,13 @@
+{
+  "name": "squigs-wl-form",
+  "version": "1.0.0",
+  "description": "Whitelist intake app for Squigs",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squigs Admin</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="page-shell admin-shell">
+      <header class="top-bar">
+        <a class="brand-link" href="/" aria-label="Squigs home">
+          <img class="brand-logo" src="https://i.imgur.com/7BhOkhC.png" alt="Squigs logo" />
+        </a>
+        <div class="social-links">
+          <a class="social-link" href="https://x.com/SquigsNFT" target="_blank" rel="noreferrer" aria-label="Squigs on X">
+            <img src="https://i.imgur.com/miO8HjA.png" alt="X logo" />
+          </a>
+          <a class="social-link" href="https://squigs.io/discord" target="_blank" rel="noreferrer" aria-label="Squigs Discord">
+            <img src="https://i.imgur.com/1gXY4wm.png" alt="Discord logo" />
+          </a>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <section id="loginCard" class="admin-card login-card">
+          <h1>Squigs Admin</h1>
+          <p>Enter the admin password to review submissions, set approval status, and copy approved wallets.</p>
+          <form id="loginForm" class="admin-login-form">
+            <input id="passwordInput" class="text-input" type="password" placeholder="Admin password" autocomplete="current-password" />
+            <button class="action-button primary" type="submit">Access Admin</button>
+          </form>
+          <div id="loginMessage" class="status-message"></div>
+        </section>
+
+        <section id="dashboard" class="admin-dashboard hidden">
+          <div class="admin-toolbar">
+            <div class="admin-card compact">
+              <h2>Approved Wallets</h2>
+              <textarea id="approvedWallets" class="wallet-list" readonly></textarea>
+              <div class="toolbar-actions">
+                <button id="copyWalletsButton" class="action-button secondary" type="button">Copy Wallets</button>
+                <a class="action-button secondary link-button" href="/api/admin/exports/approved-wallets.txt" target="_blank" rel="noreferrer">Open TXT</a>
+                <a class="action-button secondary link-button" href="/api/admin/exports/submissions.csv" target="_blank" rel="noreferrer">Open CSV</a>
+              </div>
+            </div>
+            <div class="admin-card compact">
+              <h2>Review Notes</h2>
+              <p>Statuses update the live CSV and approved wallet export immediately. Keep Railway storage mounted to retain data across deploys.</p>
+              <button id="refreshButton" class="action-button primary" type="button">Refresh</button>
+              <div id="adminMessage" class="status-message"></div>
+            </div>
+          </div>
+          <div id="submissionList" class="submission-list"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">SQUIGS ARE WATCHING</footer>
+    </div>
+
+    <script src="/admin.js"></script>
+  </body>
+  </html>
